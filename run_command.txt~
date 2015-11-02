@@ -1,8 +1,0 @@
-# This is an example of the command used to run the two scripts 
-
-/etc/local/hadoop/bin/hadoop jar share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
--file /home/hduser/workspace/word_frequency/word_freq_mapper.py \
--mapper /home/hduser/workspace/word_frequency/word_freq_mapper.py \
--file /home/hduser/workspace/word_frequency/word_freq_reducer.py \
--reducer /home/hduser/workspace/word_frequency/word_freq_reducer.py \
--input /user/hduser/gutenberg/* -output /user/hduser/gutenberg-output
