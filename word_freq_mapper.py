@@ -25,19 +25,6 @@ import string
 
 MAX_DIST = 10 # Max distance between words to consider
 
-def main():
-
-    # initialize the main array
-    main_words_list = []
-    word_count = init_array(main_words_list, MAX_DIST + 2)
-    
-    # continue to process stdin
-    unprocessed_words = []
-    for line in sys.stdin:
-        words = clean_and_split_line(line)
-        for word in words:
-            word_count = process_new_word(word, main_words_list, word_count)
-           
 def init_array(main_words_list, max_length):
     ''' Initialize the distance array by filling with words from the buffer, then
     seeking past the read lines.'''
@@ -107,8 +94,23 @@ def print_output(predecessor, distance_from, successor):
         trivial count of 1 during mapper phase. This will be input for the 
         reducer.'''
     print '%s %s %s\t%s' % (predecessor, successor, distance_from, 1)
+
+
+
+# initialize the main array
+main_words_list = []
+word_count = init_array(main_words_list, MAX_DIST + 2)
+
+# continue to process stdin
+unprocessed_words = []
+for line in sys.stdin:
+    words = clean_and_split_line(line)
+    for word in words:
+        word_count = process_new_word(word, main_words_list, word_count)
+           
+
     
-main()
+
         
         
         
